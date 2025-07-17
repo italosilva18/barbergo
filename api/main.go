@@ -13,7 +13,7 @@ import (
 
 func main() {
 	config.ConnectDatabase()
-	config.DB.AutoMigrate(&models.Appointment{}, &models.Service{})
+	config.DB.AutoMigrate(&models.Appointment{}, &models.Service{}, &models.Customer{})
 
 	r := gin.Default()
 
@@ -38,6 +38,12 @@ func main() {
 		auth.GET("/services/:id", controllers.GetService)
 		auth.PUT("/services/:id", controllers.UpdateService)
 		auth.DELETE("/services/:id", controllers.DeleteService)
+
+		auth.POST("/customers", controllers.CreateCustomer)
+		auth.GET("/customers", controllers.GetCustomers)
+		auth.GET("/customers/:id", controllers.GetCustomer)
+		auth.PUT("/customers/:id", controllers.UpdateCustomer)
+		auth.DELETE("/customers/:id", controllers.DeleteCustomer)
 	}
 
 	log.Println("Server started on port 8080")

@@ -5,6 +5,8 @@ class CustomTextField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final int? maxLines;
 
   const CustomTextField({
     super.key,
@@ -12,6 +14,8 @@ class CustomTextField extends StatelessWidget {
     required this.labelText,
     this.obscureText = false,
     this.validator,
+    this.keyboardType,
+    this.maxLines,
   });
 
   @override
@@ -21,6 +25,8 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(labelText: labelText),
       obscureText: obscureText,
       validator: validator,
+      keyboardType: keyboardType,
+      maxLines: obscureText ? 1 : maxLines,
     );
   }
 }

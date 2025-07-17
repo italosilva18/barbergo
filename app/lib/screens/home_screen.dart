@@ -1,3 +1,4 @@
+import 'package:app/screens/customer_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/appointment_list_screen.dart';
 import 'package:app/screens/service_list_screen.dart';
@@ -33,6 +34,16 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Manage Services'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CustomerListScreen()),
+                );
+              },
+              child: const Text('Manage Customers'),
             ),
           ],
         ),
