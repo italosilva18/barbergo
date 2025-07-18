@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"barbergo/api/config"
 	"barbergo/api/models"
+	"barbergo/api/utils"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"

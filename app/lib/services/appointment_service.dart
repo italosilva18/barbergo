@@ -4,7 +4,7 @@ import 'package:app/models/appointment_model.dart';
 import 'package:app/services/auth_service.dart';
 
 class AppointmentService {
-  final String baseUrl = 'http://localhost:8080/api';
+  final String baseUrl = 'http://YOUR_API_HOST:8080/api';
 
   Future<Map<String, String>> _getHeaders() async {
     final token = await AuthService().getToken();
