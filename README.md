@@ -1,66 +1,150 @@
+# BarberGo
 
-# BarberGo - Barber Shop Management App
+Sistema de gerenciamento para barbearias com app mobile (Flutter) e API backend (Go).
 
-BarberGo is a comprehensive mobile application for managing barber shops, salons, and similar businesses. It features a Flutter-based mobile app for both customers and business owners, and a Go-powered backend API for managing data.
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-## Features
+---
 
-*   **Authentication:** Secure user login, signup, and password recovery.
-*   **Appointment Management:** Schedule, view, edit, and cancel appointments.
-*   **Service Management:** Create, update, and delete services offered by the business.
-*   **Customer Management:** Keep track of customer information and history.
+## Funcionalidades
 
-## Project Structure
+- **Autenticacao** - Login, cadastro e recuperacao de senha
+- **Agendamentos** - Criar, visualizar, editar e cancelar
+- **Servicos** - Gerenciar servicos oferecidos
+- **Clientes** - Historico e informacoes de clientes
+- **Dashboard** - Visao geral do negocio
 
-*   `/app`: Contains the Flutter mobile application.
-*   `/api`: Contains the Go backend API.
+---
 
-## Getting Started
+## Tech Stack
 
-### Prerequisites
+### Mobile App (`/app`)
+- **Flutter 3.x** - Framework multiplataforma
+- **Dart** - Linguagem
+- **Provider** - State management
+- **HTTP** - API client
 
-*   [Flutter](https://flutter.dev/docs/get-started/install)
-*   [Go](https://golang.org/doc/install)
+### Backend API (`/api`)
+- **Go 1.21+** - Linguagem
+- **Gin** - Framework web
+- **GORM** - ORM
+- **JWT** - Autenticacao
+- **PostgreSQL** - Banco de dados
 
-### Backend (API)
+### Infraestrutura
+- **Docker** - Containerizacao
+- **Docker Compose** - Orquestracao
 
-1.  **Navigate to the API directory:**
-    ```bash
-    cd api
-    ```
+---
 
-2.  **Install dependencies:**
-    ```bash
-    go mod tidy
-    ```
+## Estrutura do Projeto
 
-3.  **Run the API server:**
-    ```bash
-    go run main.go
-    ```
-    The API will be running at `http://localhost:8080`.
+```
+barbergo/
+├── app/                  # Flutter mobile app
+│   ├── lib/
+│   │   ├── models/       # Data models
+│   │   ├── screens/      # UI screens
+│   │   ├── services/     # API services
+│   │   └── widgets/      # Reusable widgets
+│   └── pubspec.yaml
+│
+├── api/                  # Go backend
+│   ├── config/           # Configuration
+│   ├── controllers/      # Request handlers
+│   ├── middleware/       # Auth middleware
+│   ├── models/           # Database models
+│   ├── utils/            # Utilities
+│   └── main.go
+│
+└── docker-compose.yml
+```
 
-### Frontend (Flutter App)
+---
 
-1.  **Navigate to the app directory:**
-    ```bash
-    cd app
-    ```
+## Quick Start
 
-2.  **Install dependencies:**
-    ```bash
-    flutter pub get
-    ```
+### Com Docker
 
-3.  **Run the app:**
-    ```bash
-    flutter run
-    ```
+```bash
+# Subir todos os servicos
+docker-compose up -d
+
+# API disponivel em http://localhost:8080
+```
+
+### Desenvolvimento Manual
+
+#### Backend (Go)
+```bash
+cd api
+go mod tidy
+go run main.go
+```
+
+#### Mobile (Flutter)
+```bash
+cd app
+flutter pub get
+flutter run
+```
+
+---
 
 ## API Endpoints
 
-See the [API README](./api/README.md) for detailed information about the available endpoints.
+### Autenticacao
+| Metodo | Endpoint | Descricao |
+|--------|----------|-----------|
+| POST | `/auth/login` | Login |
+| POST | `/auth/register` | Cadastro |
+| POST | `/auth/forgot-password` | Recuperar senha |
 
-## Contributing
+### Agendamentos
+| Metodo | Endpoint | Descricao |
+|--------|----------|-----------|
+| GET | `/appointments` | Listar agendamentos |
+| POST | `/appointments` | Criar agendamento |
+| PUT | `/appointments/:id` | Atualizar |
+| DELETE | `/appointments/:id` | Cancelar |
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue.
+### Servicos
+| Metodo | Endpoint | Descricao |
+|--------|----------|-----------|
+| GET | `/services` | Listar servicos |
+| POST | `/services` | Criar servico |
+| PUT | `/services/:id` | Atualizar |
+| DELETE | `/services/:id` | Remover |
+
+---
+
+## Screenshots
+
+> Em breve
+
+---
+
+## Roadmap
+
+- [ ] Notificacoes push
+- [ ] Pagamento integrado
+- [ ] Relatorios financeiros
+- [ ] Versao web admin
+- [ ] Multi-idioma
+
+---
+
+## Autor
+
+**Italo da Silva Costa**
+- GitHub: [@italosilva18](https://github.com/italosilva18)
+- LinkedIn: [i-s-c](https://linkedin.com/in/i-s-c)
+
+---
+
+## Licenca
+
+MIT
