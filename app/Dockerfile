@@ -17,7 +17,7 @@ ARG API_BASE_URL
 RUN find . -type f -name "*.dart" -exec sed -i "s|http://YOUR_API_HOST:8080/api|$API_BASE_URL|g" {} +
 
 # Build the Flutter web application
-RUN flutter build web --release
+RUN flutter build web --release --no-tree-shake-icons
 
 # Use Nginx to serve the Flutter web app
 FROM nginx:alpine

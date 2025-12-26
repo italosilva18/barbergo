@@ -4,7 +4,7 @@ import 'package:app/models/service_model.dart';
 import 'package:app/services/auth_service.dart';
 
 class ServiceService {
-  final String baseUrl = 'http://YOUR_API_HOST:8080/api';
+  final String baseUrl = 'http://localhost:8085/api';
 
   Future<Map<String, String>> _getHeaders() async {
     final token = await AuthService().getToken();
